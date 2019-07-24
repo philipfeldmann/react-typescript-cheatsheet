@@ -129,3 +129,25 @@ const Hello: FunctionComponent = ({}) => {
   );
 };
 ```
+
+#### Iteration with conditional
+```tsx
+const Hello: FunctionComponent = ({}) => {
+  const todos = [
+    { task: "Todo 1", done: false },
+    { task: "Todo 2", done: true },
+  ];
+
+  return (
+    <ul>
+      {todos.map(todo => {
+        if (todo.done) {
+          return <li className="todo done">[DONE] {todo.task}</li>;
+        } else {
+          return <li className="todo">{todo.task}</li>;
+        }
+      })}
+    </ul>
+  );
+};
+```
