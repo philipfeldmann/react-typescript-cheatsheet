@@ -214,6 +214,7 @@ type MyState = {
 
 class IncreaseCounterCommand implements Command<MyState> {
   execute(currentState: MyState) {
+    // Always create a new object, never change existing state
     return {
       ...currentState,
       counter: currentState.counter++
