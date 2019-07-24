@@ -203,7 +203,6 @@ useEffect(() => {
 ### Complex state logic
 #### useReducer and Command Pattern
 ```tsx
-
 interface Command<StateType> {
   execute(state: StateType): StateType;
 }
@@ -233,17 +232,19 @@ class ChangeMessageCommand implements Command<MyState> {
 }
 
 const myStateReducer = (state: MyState, command: Command<MyState>) => command.execute(state);
-const initialState: MyState = { counter: 0, message: "Hello"} 
+const initialState: MyState = { counter: 0, message: "Hello" };
 
 const Test: FunctionComponent = () => {
-  const [state, dispatch] = useReducer(myStateReducer, initialState)
+  const [state, dispatch] = useReducer(myStateReducer, initialState);
 
-  return <div>
-    Counter: {state.counter}
-    Message: {state.message}
-    <button onClick={() => dispatch(new IncreaseCounterCommand())} >Increase Counter</button>
-    <button onClick={() => dispatch(new ChangeMessageCommand("👋"))} >Change Message</button>
-  </div>;
+  return (
+    <div>
+      Counter: {state.counter}
+      Message: {state.message}
+      <button onClick={() => dispatch(new IncreaseCounterCommand())}>Increase Counter</button>
+      <button onClick={() => dispatch(new ChangeMessageCommand("👋"))}>Change Message</button>
+    </div>
+  );
 };
 ```
   
