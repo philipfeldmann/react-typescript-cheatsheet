@@ -175,29 +175,76 @@ Functional components and hooks don't have a concept of `lifecycles` but we can 
 #### Component will rerender
 
 ```tsx
-  // Without dependency array
-  useEffect(() => {
-    console.log("Component will rerender")
-  })
-  ```
+// Without dependency array
+useEffect(() => {
+  console.log("Component will rerender")
+})
+```
   
-  #### Component will mount
+#### Component will mount
 
 ```tsx
-  // With empty dependency array
-  useEffect(() => {
-    console.log("Component will mount")
-  }, [])
+// With empty dependency array
+useEffect(() => {
+  console.log("Component will mount")
+}, [])
+
+```
   
-  ```
-  
-  #### Watching properties
+#### Watching properties
 
 ```tsx
-  // With dependency array
-  useEffect(() => {
-    console.log("Watching property 'counter'")
-  }, [counter])
+// With dependency array
+useEffect(() => {
+  console.log("Watching property 'counter'")
+}, [counter])
+```
+
+### Complex state logic
+#### useReducer and Command Pattern
+```tsx
+
+interface Command<StateType> {
+  execute(state: StateType): StateType;
+}
+
+type MyState = {
+  counter: number;
+  message: string;
+};
+
+class IncreaseCounterCommand implements Command<MyState> {
+  execute(currentState: MyState) {
+    return {
+      ...currentState,
+      counter: currentState.counter++
+    };
+  }
+}
+
+class ChangeMessageCommand implements Command<MyState> {
+  constructor(private msg: string) {}
+  execute(currentState: MyState) {
+    return {
+      ...currentState,
+      message: this.msg
+    };
+  }
+}
+
+const myStateReducer = (state: MyState, command: Command<MyState>) => command.execute(state);
+const initialState: MyState = { counter: 0, message: "Hello"} 
+
+const Test: FunctionComponent = () => {
+  const [state, dispatch] = useReducer(myStateReducer, initialState)
+
+  return <div>
+    Counter: {state.counter}
+    Message: {state.message}
+    <button onClick={() => dispatch(new IncreaseCounterCommand())} >Increase Counter</button>
+    <button onClick={() => dispatch(new ChangeMessageCommand("👋"))} >Change Message</button>
+  </div>;
+};
 ```
   
 ## Tooling
