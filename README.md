@@ -109,6 +109,7 @@ const Hello: FunctionComponent = () => {
 
 ### Iterating / for-loops
 First it's important to understand that react simply renders arrays as individual elements.
+
 `<ul>{[<li>One</li>, <li>Two</li>, <li>Three</li>]}</ul>` will be rendered as:
 * One
 * Two
