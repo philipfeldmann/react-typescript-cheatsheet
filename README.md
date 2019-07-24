@@ -1,8 +1,8 @@
 # React + Typescript Cheatsheet
 
-*Table of contents*
+__Table of contents__
 1. [Components](#components)
-  1. [Functional Component Boilerplate](#functional-component-boilerplate)
+    1. [Functional Component Boilerplate](#functional-component-boilerplate)
 
 ## Components
 
