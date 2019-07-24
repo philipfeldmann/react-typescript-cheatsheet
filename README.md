@@ -53,3 +53,55 @@ export default Hello;
 ```
 
 ## Templating
+While react does not have a templating engine itself, comming templating tasks can be easily achieved by using tsx.
+
+### Conditional Syntax
+
+#### Simple conditionals with ternary syntax
+```tsx
+const Hello: FunctionComponent = () => {
+  const condition = 1 > 2;
+  return (
+    <div>
+      <div>I'm always shown</div>
+      {condition ? <div>Condition is true</div> : <div>Condition is false</div>}
+    </div>
+  );
+};
+```
+
+#### Conditions with if / else
+```tsx
+const Hello: FunctionComponent = () => {
+  let output = null;
+  if (1 > 2) {
+    output = <div>Condition is true</div>;
+  } else {
+    output = <div>Condition is false</div>;
+  }
+  return (
+    <div>
+      <div>I'm always shown</div>
+      {output}
+    </div>
+  );
+};
+```
+
+#### Conditions with if / else inside the "template"
+```tsx
+  return (
+    <div>
+      <div>I'm always shown</div>
+      {/* We can use a function to put the condition inside the "template" */}
+      {(() => {
+        if (1 > 2) {
+          return <div>Condition is true</div>;
+        } else {
+          return <div>Condition is false</div>;
+        }
+      })()}
+    </div>
+  );
+};
+```
