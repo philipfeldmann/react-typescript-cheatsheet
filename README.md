@@ -105,3 +105,28 @@ const Hello: FunctionComponent = () => {
   );
 };
 ```
+
+
+### Iterating / for-loops
+First it's important to understand that react simply renders arrays as individual elements.
+`<ul>{[<li>One</li>, <li>Two</li>, <li>Three</li>]}</ul>` will be rendered as:
+* One
+* Two
+* Three
+
+We can make use of that by using the `map` function to transform our data into markup, as `map` always returns an array.
+
+#### Simple Iteration
+```tsx
+const Hello: FunctionComponent = ({}) => {
+  const todos = ["Todo 1", "Todo 2", "Todo 3"];
+
+  return (
+    <ul>
+      {todos.map(todo => (
+        <li>{todo}</li>
+      ))}
+    </ul>
+  );
+};
+```
