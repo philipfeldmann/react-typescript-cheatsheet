@@ -52,10 +52,46 @@ const Hello: FunctionComponent<HelloProps> = ({ name }) => {
 export default Hello;
 ```
 
+### Functional Component with optional props and default values
+```tsx
+interface ExampleProps {
+  requiredProp: number;
+  optionalProp?: string;
+  optionalPropWithDefault?: string;
+}
+
+const Example: FunctionComponent<ExampleProps> = ({
+  requiredProp,
+  optionalProp,
+  optionalPropWithDefault = "Default value"
+}) => {
+  return (
+    <ul>
+      <li>{requiredProp}</li>
+      {optionalProp && <li>{optionalProp}</li>}
+      <li>{optionalPropWithDefault}</li>
+    </ul>
+  );
+};
+```
+
 ## Templating
 While react does not have a templating engine itself, comming templating tasks can be easily achieved by using tsx.
 
 ### Conditional Syntax
+
+#### Single conditional
+```tsx
+const Hello: FunctionComponent = () => {
+  const condition = 1 > 2;
+  return (
+    <div>
+      <div>I'm always shown</div>
+      {condition && <div>Only shown if condition is true</div>}
+    </div>
+  );
+};
+```
 
 #### Simple conditionals with ternary syntax
 ```tsx
