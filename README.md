@@ -198,15 +198,15 @@ Functional components and hooks don't have a concept of `lifecycles` but we can 
   useEffect(() => {
     console.log("Watching property 'counter'")
   }, [counter])
-  ```
+```
   
-  ## Tooling
+## Tooling
   
-  ### Vscode snippets
+### Vscode snippets
   
-  #### Create a function component (type "rfc")
-  ```json
-  {
+#### Create a function component (type "rfc")
+```json
+{
   "Create a FunctionComponent": {
     "prefix": "rfc",
     "body": [
