@@ -24,7 +24,7 @@ __Table of contents__
     - [Component will mount](#component-will-mount)
     - [Watching properties](#watching-properties)
   - [Complex state logic](#complex-state-logic)
-   - [useReducer and Command Pattern](#usereducer-and-command-pattern)
+    - [useReducer and Command Pattern](#usereducer-and-command-pattern)
 - [Tooling](#tooling)
   - [Vscode snippets](#vscode-snippets)
     - [Create a function component (type "rfc")](#create-a-function-component-type-rfc)
