@@ -14,7 +14,7 @@ export default Hello;
 ```
 
 ### Functional Component with children
-#### Component Code
+#### Component Declaration
 ```tsx
 import React, { FunctionComponent } from "react";
 
@@ -130,7 +130,7 @@ const Hello: FunctionComponent = ({}) => {
 };
 ```
 
-#### Iteration with conditional
+#### Iteration with conditionals
 ```tsx
 const Hello: FunctionComponent = ({}) => {
   const todos = [
@@ -151,3 +151,41 @@ const Hello: FunctionComponent = ({}) => {
   );
 };
 ```
+
+
+## State & lifecycles
+We are using *react hooks* for everything that's state / lifecycle related. Because hooks only work with functional components, we are solely using `FunctionComponent` and never `React.Component` and classes.
+
+### Simple state management example
+```tsx
+const Counter: FunctionComponent = ({}) => {
+  const [counter, setCounter] = useState(0);
+  return (
+    <div>
+      {counter}
+      <button onClick={() => setCounter(counter => counter + 1)}>}>+</button>
+    </div>
+  );
+};
+```
+
+### Lifecycle
+Functional components and hooks don't have a concept of `lifecycles` but we can get something similar using the useEffect hook, which runs every time the component is re-rendered.
+
+```tsx
+  // Without dependency array
+  useEffect(() => {
+    console.log("Component will rerender")
+  })
+  
+  // With empty dependency array
+  useEffect(() => {
+    console.log("Component will mount")
+  }, [])
+  
+  // With dependency array
+  useEffect(() => {
+    console.log("Watching property 'counter'")
+  }, [counter])
+  ```
+
