@@ -1,49 +1,52 @@
 # React + Typescript Cheatsheet
 
-__Table of contents__
-1. [Components](#components)
-    1. [Functional Component Boilerplate](#functional-component-boilerplate)
+<!-- TOC -->autoauto- [React + Typescript Cheatsheet](#react--typescript-cheatsheet)auto  - [Components](#components)auto    - [Functional Component Boilerplate](#functional-component-boilerplate)auto    - [Functional Component with children](#functional-component-with-children)auto      - [Component Declaration](#component-declaration)auto      - [Component Usage](#component-usage)auto    - [Functional Component with props](#functional-component-with-props)auto    - [Functional Component with optional props and default values](#functional-component-with-optional-props-and-default-values)auto  - [Templating](#templating)auto    - [Conditional Syntax](#conditional-syntax)auto      - [Single conditional](#single-conditional)auto      - [Simple conditionals with ternary syntax](#simple-conditionals-with-ternary-syntax)auto      - [Conditions with if / else](#conditions-with-if--else)auto      - [Conditions with if / else inside the "template"](#conditions-with-if--else-inside-the-template)auto    - [Iterating / for-loops](#iterating--for-loops)auto      - [Simple Iteration](#simple-iteration)auto      - [Iteration with conditionals](#iteration-with-conditionals)auto  - [State & lifecycles](#state--lifecycles)auto    - [Simple state management example](#simple-state-management-example)auto    - [Lifecycle](#lifecycle)auto      - [Component will rerender](#component-will-rerender)auto      - [Component will mount](#component-will-mount)auto      - [Watching properties](#watching-properties)auto    - [Complex state logic](#complex-state-logic)auto      - [useReducer and Command Pattern](#usereducer-and-command-pattern)auto  - [Tooling](#tooling)auto    - [Vscode snippets](#vscode-snippets)auto      - [Create a function component (type "rfc")](#create-a-function-component-type-rfc)auto      - [Create a jest unit test (type "jut")](#create-a-jest-unit-test-type-jut)autoauto<!-- /TOC -->
 
 ## Components
 
 ### Functional Component Boilerplate
+
 ```tsx
 import React, { FunctionComponent } from "react";
 
 const Hello: FunctionComponent = () => {
   return <div>Hallo</div>;
-}
+};
 
 export default Hello;
 ```
 
 ### Functional Component with children
+
 #### Component Declaration
+
 ```tsx
 import React, { FunctionComponent } from "react";
 
 // Children's type is inferred by the FunctionComponent interface
 const Hello: FunctionComponent = ({ children }) => {
   return <div>{children}</div>;
-}
+};
 
 export default Hello;
 ```
+
 #### Component Usage
+
 ```tsx
 <Hello>
   <span>This span will be displayed, where children is used in the 'Hello' component</span>
 <Hello>
 ```
 
-
 ### Functional Component with props
+
 ```tsx
 import React, { FunctionComponent } from "react";
 
 // Type definitions for our prop bindings
 interface HelloProps {
-  name: string
+  name: string;
 }
 
 // Functions can infer interfaces in typescript
@@ -51,12 +54,13 @@ interface HelloProps {
 // Inside are all properties defined by our HelloProps interface
 const Hello: FunctionComponent<HelloProps> = ({ name }) => {
   return <div>Hello, {name}</div>;
-}
+};
 
 export default Hello;
 ```
 
 ### Functional Component with optional props and default values
+
 ```tsx
 interface ExampleProps {
   requiredProp: number;
@@ -80,11 +84,13 @@ const Example: FunctionComponent<ExampleProps> = ({
 ```
 
 ## Templating
+
 While react does not have a templating engine itself, comming templating tasks can be easily achieved by using tsx.
 
 ### Conditional Syntax
 
 #### Single conditional
+
 ```tsx
 const Hello: FunctionComponent = () => {
   const condition = 1 > 2;
@@ -98,6 +104,7 @@ const Hello: FunctionComponent = () => {
 ```
 
 #### Simple conditionals with ternary syntax
+
 ```tsx
 const Hello: FunctionComponent = () => {
   const condition = 1 > 2;
@@ -111,6 +118,7 @@ const Hello: FunctionComponent = () => {
 ```
 
 #### Conditions with if / else
+
 ```tsx
 const Hello: FunctionComponent = () => {
   let output = null;
@@ -129,6 +137,7 @@ const Hello: FunctionComponent = () => {
 ```
 
 #### Conditions with if / else inside the "template"
+
 ```tsx
   return (
     <div>
@@ -146,37 +155,39 @@ const Hello: FunctionComponent = () => {
 };
 ```
 
-
 ### Iterating / for-loops
+
 First it's important to understand that react simply renders arrays as individual elements.
 
 `<ul>{[<li>One</li>, <li>Two</li>, <li>Three</li>]}</ul>` will be rendered as:
-* One
-* Two
-* Three
+
+- One
+- Two
+- Three
 
 We can make use of that by using the `map` function to transform our data into markup, as `map` always returns an array.
 
 #### Simple Iteration
+
 ```tsx
 const Hello: FunctionComponent = ({}) => {
   const todos = ["Todo 1", "Todo 2", "Todo 3"];
 
   return (
     <ul>
-      {todos.map(todo => <li>{todo}</li>)}
+      {todos.map(todo => (
+        <li>{todo}</li>
+      ))}
     </ul>
   );
 };
 ```
 
 #### Iteration with conditionals
+
 ```tsx
 const Hello: FunctionComponent = ({}) => {
-  const todos = [
-    { task: "Todo 1", done: false },
-    { task: "Todo 2", done: true },
-  ];
+  const todos = [{ task: "Todo 1", done: false }, { task: "Todo 2", done: true }];
 
   return (
     <ul>
@@ -192,11 +203,12 @@ const Hello: FunctionComponent = ({}) => {
 };
 ```
 
-
 ## State & lifecycles
-We are using *react hooks* for everything that's state / lifecycle related. Because hooks only work with functional components, we are solely using `FunctionComponent` and never `React.Component` and classes.
+
+We are using _react hooks_ for everything that's state / lifecycle related. Because hooks only work with functional components, we are solely using `FunctionComponent` and never `React.Component` and classes.
 
 ### Simple state management example
+
 ```tsx
 const Counter: FunctionComponent = ({}) => {
   const [counter, setCounter] = useState(0);
@@ -210,38 +222,40 @@ const Counter: FunctionComponent = ({}) => {
 ```
 
 ### Lifecycle
+
 Functional components and hooks don't have a concept of `lifecycles` but we can get something similar using the useEffect hook, which runs every time the component is re-rendered.
-  
+
 #### Component will rerender
 
 ```tsx
 // Without dependency array
 useEffect(() => {
-  console.log("Component will rerender")
-})
+  console.log("Component will rerender");
+});
 ```
-  
+
 #### Component will mount
 
 ```tsx
 // With empty dependency array
 useEffect(() => {
-  console.log("Component will mount")
-}, [])
-
+  console.log("Component will mount");
+}, []);
 ```
-  
+
 #### Watching properties
 
 ```tsx
 // With dependency array
 useEffect(() => {
-  console.log("Watching property 'counter'")
-}, [counter])
+  console.log("Watching property 'counter'");
+}, [counter]);
 ```
 
 ### Complex state logic
+
 #### useReducer and Command Pattern
+
 ```tsx
 interface Command<StateType> {
   execute(state: StateType): StateType;
@@ -288,12 +302,13 @@ const Test: FunctionComponent = () => {
   );
 };
 ```
-  
+
 ## Tooling
-  
+
 ### Vscode snippets
-  
+
 #### Create a function component (type "rfc")
+
 ```json
 {
   "Create a FunctionComponent": {
@@ -314,6 +329,7 @@ const Test: FunctionComponent = () => {
 ```
 
 #### Create a jest unit test (type "jut")
+
 ```json
 {
   "Create a Jest Unit Test": {
@@ -333,5 +349,3 @@ const Test: FunctionComponent = () => {
   }
 }
 ```
-
-
