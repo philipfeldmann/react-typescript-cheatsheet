@@ -32,4 +32,24 @@ export default Hello;
 <Hello>
 ```
 
+
+### Functional Component with props
+```tsx
+import React, { FunctionComponent } from "react";
+
+// Type definitions for our prop bindings
+interface HelloProps {
+  name: string
+}
+
+// Functions can infer interfaces in typescript
+// We are passing props as an object with the `{}` syntax
+// Inside are all properties defined by our HelloProps interface
+const Hello: FunctionComponent<HelloProps> = ({ name }) => {
+  return <div>Hello, {name}</div>;
+}
+
+export default Hello;
+```
+
 ## Templating
