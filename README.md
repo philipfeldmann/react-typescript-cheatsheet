@@ -1,6 +1,35 @@
 # React + Typescript Cheatsheet
 
-[React + Typescript Cheatsheet](#react--typescript-cheatsheet)auto - [Components](#components)auto - [Functional Component Boilerplate](#functional-component-boilerplate)auto - [Functional Component with children](#functional-component-with-children)auto - [Component Declaration](#component-declaration)auto - [Component Usage](#component-usage)auto - [Functional Component with props](#functional-component-with-props)auto - [Functional Component with optional props and default values](#functional-component-with-optional-props-and-default-values)auto - [Templating](#templating)auto - [Conditional Syntax](#conditional-syntax)auto - [Single conditional](#single-conditional)auto - [Simple conditionals with ternary syntax](#simple-conditionals-with-ternary-syntax)auto - [Conditions with if / else](#conditions-with-if--else)auto - [Conditions with if / else inside the "template"](#conditions-with-if--else-inside-the-template)auto - [Iterating / for-loops](#iterating--for-loops)auto - [Simple Iteration](#simple-iteration)auto - [Iteration with conditionals](#iteration-with-conditionals)auto - [State & lifecycles](#state--lifecycles)auto - [Simple state management example](#simple-state-management-example)auto - [Lifecycle](#lifecycle)auto - [Component will rerender](#component-will-rerender)auto - [Component will mount](#component-will-mount)auto - [Watching properties](#watching-properties)auto - [Complex state logic](#complex-state-logic)auto - [useReducer and Command Pattern](#usereducer-and-command-pattern)auto - [Tooling](#tooling)auto - [Vscode snippets](#vscode-snippets)auto - [Create a function component (type "rfc")](#create-a-function-component-type-rfc)auto - [Create a jest unit test (type "jut")](#create-a-jest-unit-test-type-jut)
+[React + Typescript Cheatsheet](#react--typescript-cheatsheet)
+
+- [Components](#components)
+- [Functional Component Boilerplate](#functional-component-boilerplate)
+- [Functional Component with children](#functional-component-with-children)
+- [Component Declaration](#component-declaration)
+- [Component Usage](#component-usage)
+- [Functional Component with props](#functional-component-with-props)
+- [Functional Component with optional props and default values](#functional-component-with-optional-props-and-default-values)
+- [Templating](#templating)
+- [Conditional Syntax](#conditional-syntax)
+- [Single conditional](#single-conditional)
+- [Simple conditionals with ternary syntax](#simple-conditionals-with-ternary-syntax)
+- [Conditions with if / else](#conditions-with-if--else)
+- [Conditions with if / else inside the "template"](#conditions-with-if--else-inside-the-template)
+- [Iterating / for-loops](#iterating--for-loops)
+- [Simple Iteration](#simple-iteration)
+- [Iteration with conditionals](#iteration-with-conditionals)
+- [State & lifecycles](#state--lifecycles)
+- [Simple state management example](#simple-state-management-example)
+- [Lifecycle](#lifecycle)
+- [Component will rerender](#component-will-rerender)
+- [Component will mount](#component-will-mount)
+- [Watching properties](#watching-properties)
+- [Complex state logic](#complex-state-logic)
+- [useReducer and Command Pattern](#usereducer-and-command-pattern)
+- [Tooling](#tooling)
+- [Vscode snippets](#vscode-snippets)
+- [Create a function component (type "rfc")](#create-a-function-component-type-rfc)
+- [Create a jest unit test (type "jut")](#create-a-jest-unit-test-type-jut)
 
 ## Components
 
