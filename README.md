@@ -171,21 +171,31 @@ const Counter: FunctionComponent = ({}) => {
 
 ### Lifecycle
 Functional components and hooks don't have a concept of `lifecycles` but we can get something similar using the useEffect hook, which runs every time the component is re-rendered.
+  
+#### Component will rerender
 
 ```tsx
   // Without dependency array
   useEffect(() => {
     console.log("Component will rerender")
   })
+  ```
   
+  #### Component will mount
+
+```tsx
   // With empty dependency array
   useEffect(() => {
     console.log("Component will mount")
   }, [])
   
+  ```
+  
+  #### Watching properties
+
+```tsx
   // With dependency array
   useEffect(() => {
     console.log("Watching property 'counter'")
   }, [counter])
   ```
-
