@@ -199,3 +199,50 @@ Functional components and hooks don't have a concept of `lifecycles` but we can 
     console.log("Watching property 'counter'")
   }, [counter])
   ```
+  
+  ## Tooling
+  
+  ### Vscode snippets
+  
+  #### Create a function component (type "rfc")
+  ```json
+  {
+  "Create a FunctionComponent": {
+    "prefix": "rfc",
+    "body": [
+      "import React, { FunctionComponent } from \"react\";",
+      "",
+      "interface $1Props {}",
+      "",
+      "const $1: FunctionComponent<$1Props> = ({}) => {",
+      "\treturn null;",
+      "}",
+      "export default $1;"
+    ],
+    "description": "Creates a functional React component with the corresponding interface and exports."
+  }
+}
+```
+
+#### Create a jest unit test (type "jut")
+```json
+{
+  "Create a Jest Unit Test": {
+    "prefix": "jut",
+    "body": [
+      "import React from \"react\";",
+      "import { shallow } from \"enzyme\";",
+      "import $1 from \"./$1\";",
+      "",
+      "describe(\"$1\", ()=> {",
+      "  it(\"should render to snapshot\", () => {",
+      "    const component = shallow(<$1 />);",
+      "    expect(component).toMatchSnapshot();",
+      "  });",
+      "});"
+    ]
+  }
+}
+```
+
+
