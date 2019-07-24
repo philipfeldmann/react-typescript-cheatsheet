@@ -113,7 +113,7 @@ const Example: FunctionComponent<ExampleProps> = ({
 
 ## Templating
 
-While react does not have a templating engine itself, comming templating tasks can be easily achieved by using tsx.
+While react does not have a templating engine itself, common templating tasks can be easily achieved by using tsx.
 
 ### Conditional Syntax
 
