@@ -203,9 +203,7 @@ const Hello: FunctionComponent = ({}) => {
 
   return (
     <ul>
-      {todos.map(todo => (
-        <li>{todo}</li>
-      ))}
+      {todos.map(todo => <li>{todo}</li>)}
     </ul>
   );
 };
