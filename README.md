@@ -278,6 +278,23 @@ useEffect(() => {
 }, [counter]);
 ```
 
+#### Component did render
+
+```tsx
+// With dependency array
+useLayoutEffect(() => {
+  console.log("Component did render");
+});
+```
+
+#### Component did mount
+```tsx
+// With dependency array
+useLayoutEffect(() => {
+  console.log("Componentn did mount");
+}, []);
+```
+
 ### Complex state logic
 
 #### useReducer and Command Pattern
