@@ -231,7 +231,7 @@ const Hello: FunctionComponent = ({}) => {
 
 ## State & lifecycles
 
-We are using _react hooks_ for everything that's state / lifecycle related. Because hooks only work with functional components, we are solely using `FunctionComponent` and never `React.Component` and classes.
+We are using _react hooks_ for everything that's state / lifecycle related. Because hooks only work with functional components, we are solely using `FunctionComponent` instead of `React.Component` or classes.
 
 ### Simple state management example
 
